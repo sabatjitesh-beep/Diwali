@@ -1,26 +1,18 @@
-import tkinter as tk
+import streamlit as st
 
-def check_name():
-    name = entry.get()
+# Title of the app
+st.title("Name Personality Checker")
+
+# Input field for the user's name
+name = st.text_input("Enter your name:")
+
+# Logic to display personalized message
+if name:
     if name == "Jitesh":
-        result.set("You are a true hero")
+        st.success("You are a true hero")
     elif name == "Jyotika":
-        result.set("You have a devil in your heart")
+        st.warning("You have a devil in your heart")
     elif name == "Jeshika":
-        result.set("You are too stubborn, always trying to pick a fight with others!!!!")
+        st.error("You are too stubborn, always trying to pick a fight with others!!!!")
     else:
-        result.set("You are always right")
-
-# GUI setup
-root = tk.Tk()
-root.title("Name Personality Checker")
-
-tk.Label(root, text="Enter your name:").pack()
-entry = tk.Entry(root)
-entry.pack()
-
-tk.Button(root, text="Check", command=check_name).pack()
-result = tk.StringVar()
-tk.Label(root, textvariable=result, fg="blue").pack()
-
-root.mainloop()
+        st.info("You are always right")
